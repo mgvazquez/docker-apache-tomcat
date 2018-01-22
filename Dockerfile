@@ -140,7 +140,7 @@ RUN set -e \
 
 
 
-ENTRYPOINT ["sudo", "/bin/dumb-init"]
+ENTRYPOINT ["/bin/dumb-init"]
 CMD ["catalina.sh", "run"]
 
 ################### Don't move ###################

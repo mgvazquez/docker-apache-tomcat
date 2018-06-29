@@ -138,7 +138,10 @@ RUN set -e \
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
+# ------ Enviroment Re-Evaluation Patch ---------
+COPY extras/env.patch /tmp/
+RUN sed -ie "2r /tmp/env.patch" /usr/local/tomcat/bin/catalina.sh
+# -----------------------------------------------
 
 ENTRYPOINT ["/bin/dumb-init"]
 CMD ["catalina.sh", "run"]
